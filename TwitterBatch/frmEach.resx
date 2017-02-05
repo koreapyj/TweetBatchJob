@@ -121,15 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAMVJREFUOE+tkzEOwjAQBP0DvsQfaOFNoUqFhMQHUtFSp6VKH4mKAihsl8bj+CQ7
-        IkHgrLSK5dtd3zmJWhzW2rUxpvF0IzbUouwzvKjq+rvb7i9utTs5tTkEsmaPmtb6GOU5KLTdLTOOSQ0N
-        B0XbAFojfc4sRIM2G4f5aDEV1uerez5e4ZnuQ7R4oj0EZKfPmSFaPNE+BEhRzFMU3fIBpSOUXWLxawQ+
-        sfr7QxJQIJ0W0yDW7FGbNAtojfk8w0Ul/P4z/Q6l3qCG14L/QunsAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="toolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -137,18 +128,6 @@
         +U9J0yIif4lNqFrrtOoU1ylDBsrCYuqQKDZWHj7MV9kfL7Is7yFsQrjszk2fIGSy8AgSAWnYpRDdg5kN
         ADdn/VcAP66HbvdHP9kQAHclgHqFDAH+oRJAm6kwswHoRu8RYLP2Stq7IqA/UQaw+eS9qjc0fP1QKSCK
         DZQCULhOGTS/S8oTFRnMomQdIDcAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="toolStripMenuItem3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAFqSURBVDhPhZOxSgNBEIbvDbw30CcQn0DyAla2CulsLMRWi1QWNrEOQkAQsZArbEzjFWm0kDRC
-        wCYiiIXCWaVd55ubuYwJIQM/tzvzz78zs3tZSilbZtPpNBmOzLVoqwTWD27S0/gTkb65/9u8gBA3BF3B
-        CIFs9zKt7V+l2+EbIvhyo9YWBSTY/vr5TSfXz2nz+E6TI/ALZyLYspSZAMmUSsnziQ5EhQfamoQhgCIn
-        U6qT9y4e9cS4F14laFlqbSbQh+Bk67cU6P68GLGnfy1dvm1BJwpUfvphbwi5MGIavLy7mA+3slupGgHK
-        99MtQcuUL+uurVvjj+9mRsTwrxKgVOXhI+Y8BAS5t9AEeoNXAnV/wfARiwIaMIFy5+xBA8yCikgQ5IZO
-        vCW45EQBfQOuTp9WiYJ1fB82xPotIICJo4glLoMJ6y2pBQFKLRnU9un9QiK+cKWz/8EF3CTI5CdcGQmA
-        NT5iRjPLsj9r7yEC0sWwEQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="실행RToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
