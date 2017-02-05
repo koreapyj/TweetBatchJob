@@ -1,30 +1,28 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Compat.Web;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TweetSharp;
 
 namespace TwitterBatch
 {
     public partial class frmEach : Form
     {
-        public TwitterOAuth TwitterConn;
         private string responseText;
         private dynamic responseObject;
         private Stack<string> displayStack = new Stack<string>();
+        private List<Stack<string>> backList = new List<Stack<string>>();
         public frmEach()
         {
             InitializeComponent();
-        }
-
-        private void frmEach_Shown(object sender, EventArgs e)
-        {
         }
 
         private void exec(string action)
@@ -36,9 +34,18 @@ namespace TwitterBatch
                 responseText = null;
                 responseObject = null;
 
+                NameValueCollection paramObj = null;
+
+                int qpos = -1;
+                if((qpos = action.IndexOf('?'))>-1)
+                {
+                    paramObj = HttpUtility.ParseQueryString(action.Substring(qpos));
+                    action = action.Substring(0, qpos);
+                }
+
                 try
                 {
-                    responseText = TwitterConn.Get(action);
+                    responseText = frmMain.TwitterConn.Get(action, paramObj);
                 }
                 catch (Exception ex)
                 {
@@ -89,20 +96,34 @@ namespace TwitterBatch
                 foreach (dynamic eachRow in tmpObject)
                 {
                     string before = null;
-                    foreach (dynamic each in eachRow)
+                    if(eachRow.GetType().Name == "JValue")
                     {
-                        if(!lvResult.Columns.ContainsKey(each.Name))
+                        if (!lvResult.Columns.ContainsKey("Value"))
                         {
                             ColumnHeader n = new ColumnHeader();
-                            n.Name = each.Name;
-                            n.Text = each.Name;
-                            int key;
-                            if ((key = lvResult.Columns.IndexOfKey(before)) > -1)
-                                lvResult.Columns.Insert(key+1, n);
-                            else
-                                lvResult.Columns.Add(n);
+                            n.Name = "Value";
+                            n.Text = "Value";
+                            n.Width = -1;
+                            lvResult.Columns.Add(n);
                         }
-                        before = each.Name;
+                    }
+                    else
+                    {
+                        foreach (dynamic each in eachRow)
+                        {
+                            if (!lvResult.Columns.ContainsKey(each.Name))
+                            {
+                                ColumnHeader n = new ColumnHeader();
+                                n.Name = each.Name;
+                                n.Text = each.Name;
+                                int key;
+                                if ((key = lvResult.Columns.IndexOfKey(before)) > -1)
+                                    lvResult.Columns.Insert(key + 1, n);
+                                else
+                                    lvResult.Columns.Add(n);
+                            }
+                            before = each.Name;
+                        }
                     }
                 }
 
@@ -116,20 +137,30 @@ namespace TwitterBatch
             {
                 lvResult.Columns.Add(" ");
                 string before = null;
-                foreach (dynamic each in tmpObject)
+                if (tmpObject.GetType().Name == "JValue")
                 {
-                    if (!lvResult.Columns.ContainsKey(each.Name))
+                    ColumnHeader n = new ColumnHeader();
+                    n.Name = "Value";
+                    n.Text = "Value";
+                    lvResult.Columns.Add(n);
+                }
+                else
+                {
+                    foreach (dynamic each in tmpObject)
                     {
-                        ColumnHeader n = new ColumnHeader();
-                        n.Name = each.Name;
-                        n.Text = each.Name;
-                        int key;
-                        if ((key = lvResult.Columns.IndexOfKey(before)) > -1)
-                            lvResult.Columns.Insert(key + 1, n);
-                        else
-                            lvResult.Columns.Add(n);
+                        if (!lvResult.Columns.ContainsKey(each.Name))
+                        {
+                            ColumnHeader n = new ColumnHeader();
+                            n.Name = each.Name;
+                            n.Text = each.Name;
+                            int key;
+                            if ((key = lvResult.Columns.IndexOfKey(before)) > -1)
+                                lvResult.Columns.Insert(key + 1, n);
+                            else
+                                lvResult.Columns.Add(n);
+                        }
+                        before = each.Name;
                     }
-                    before = each.Name;
                 }
 
                 displayDynamicSingle(tmpObject);
@@ -140,22 +171,32 @@ namespace TwitterBatch
         {
             var row = new ListViewItem();
             row.Text = idx.ToString();
-
-            foreach (ColumnHeader each in lvResult.Columns)
+            if (target.GetType().Name == "JValue")
             {
-                if (each.Index == 0)
-                    continue;
                 ListViewItem.ListViewSubItem n = new ListViewItem.ListViewSubItem();
-                n.Name = each.Name;
-                if (target[each.Name] == null)
-                {
-                    n.Text = "";
-                }
-                else
-                {
-                    n.Text = target[each.Name].ToString();
-                }
+                n.Name = "Value";
+                n.Text = target;
                 row.SubItems.Add(n);
+            }
+            else
+            {
+
+                foreach (ColumnHeader each in lvResult.Columns)
+                {
+                    if (each.Index == 0)
+                        continue;
+                    ListViewItem.ListViewSubItem n = new ListViewItem.ListViewSubItem();
+                    n.Name = each.Name;
+                    if (target[each.Name] == null)
+                    {
+                        n.Text = "";
+                    }
+                    else
+                    {
+                        n.Text = target[each.Name].ToString();
+                    }
+                    row.SubItems.Add(n);
+                }
             }
             lvResult.Items.Add(row);
         }

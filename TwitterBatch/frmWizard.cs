@@ -1,57 +1,49 @@
 ﻿using System;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Controls.WindowsForms;
 using System.Diagnostics;
 using System.ComponentModel;
-using TweetSharp;
 using System.Compat.Web;
 
 namespace TwitterBatch
 {
     public partial class frmWizard : Form
     {
-        private frmEach newForm;
-        public frmWizard(frmEach childForm)
+        public frmWizard()
         {
             InitializeComponent();
-            newForm = childForm;
-            wPageLoginSuccess.Commit += (object sender, AeroWizard.WizardPageConfirmEventArgs e) =>
+            wizardControl.SelectedPageChanged += (object sender, EventArgs e) =>
             {
-                newForm.Show();
-            };
-            wizardControl1.SelectedPageChanged += (object sender, EventArgs e) =>
-            {
-                if (wizardControl1.SelectedPage == wPageLoginPrepare)
+                if (wizardControl.SelectedPage == wPageLoginPrepare)
                 {
                     doLogin();
                 }
-                else if(wizardControl1.SelectedPage == wPageLoginDo)
+                else if(wizardControl.SelectedPage == wPageLoginDo)
                 {
-                    wBrowserLogin.Navigate(newForm.TwitterConn.GetAuthorizeUrl());
+                    wBrowserLogin.Navigate(frmMain.TwitterConn.GetAuthorizeUrl());
                 }
             };
         }
 
         private void commandLink1_Click(object sender, EventArgs e)
         {
-            wizardControl1.NextPage(wPageApikeyAsk);
+            wizardControl.NextPage(wPageApikeyAsk);
         }
 
         private void commandLink2_Click(object sender, EventArgs e)
         {
-            wizardControl1.NextPage(wPageApiKeyInput);
+            wizardControl.NextPage(wPageApiKeyInput);
         }
 
         private void commandLink3_Click(object sender, EventArgs e)
         {
             Process.Start("https://apps.twitter.com/");
-            wizardControl1.NextPage(wPageApiKeyInput);
+            wizardControl.NextPage(wPageApiKeyInput);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.tBoxConsumerKey.Text = this.tBoxConsumerSecret.Text = "";
-            wizardControl1.NextPage(wPageLoginPrepare);
+            wizardControl.NextPage(wPageLoginPrepare);
         }
 
         public void doLogin()
@@ -61,17 +53,17 @@ namespace TwitterBatch
             {
                 if (this.tBoxConsumerKey.Text != "" && this.tBoxConsumerSecret.Text != "")
                 {
-                    newForm.TwitterConn = new TwitterOAuth(this.tBoxConsumerKey.Text, this.tBoxConsumerSecret.Text);
+                    frmMain.TwitterConn = new TwitterOAuth(this.tBoxConsumerKey.Text, this.tBoxConsumerSecret.Text);
                 }
                 else
                 {
-                    newForm.TwitterConn = new TwitterOAuth("yZC4N1tgnLpZZ9EJeK5aFjXxW", "dkRxcHjqerkSgSs7VUVnaKAkwybWxhjNpcy6KlIcMltI3u6Q7F");
+                    frmMain.TwitterConn = new TwitterOAuth("yZC4N1tgnLpZZ9EJeK5aFjXxW", "dkRxcHjqerkSgSs7VUVnaKAkwybWxhjNpcy6KlIcMltI3u6Q7F");
                 }
-                newForm.TwitterConn.AcquireRequestToken();
+                frmMain.TwitterConn.AcquireRequestToken();
             };
             worker.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
             {
-                wizardControl1.NextPage(wPageLoginDo);
+                wizardControl.NextPage(wPageLoginDo);
             };
             worker.RunWorkerAsync();
         }
@@ -90,11 +82,10 @@ namespace TwitterBatch
                 }
                 if (pin == null)
                     return;
-                var info = HttpUtility.ParseQueryString(newForm.TwitterConn.AcquireAccessToken(pin));
+                frmMain.TwitterConn.AcquireAccessToken(pin);
                 worker.RunWorkerCompleted += (object ee_sender, RunWorkerCompletedEventArgs ee_e) =>
                 {
-                    wizardControl1.NextPage(wPageLoginSuccess);
-                    newForm.Text = "@" + info["screen_name"];
+                    wizardControl.NextPage(wPageLoginSuccess);
                 };
             };
             worker.RunWorkerAsync();

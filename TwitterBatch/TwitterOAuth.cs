@@ -7,20 +7,34 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Web;
 using System.IO;
+using System.Collections.Specialized;
 
 namespace TwitterBatch
 {
     public class TwitterOAuth
     {
         private OAuth.Manager AuthMan;
-        private string EndpointBase = "https://api.twitter.com/1.1/";
-        private string EndpointType = "json";
+        public string EndpointBase = "https://api.twitter.com/1.1/";
+        public string EndpointType = "json";
+
+        public NameValueCollection ConnectionInfo
+        {
+            get;
+            internal set;
+        }
+
+        public bool Ready
+        {
+            get;
+            internal set;
+        }
 
         public TwitterOAuth(string consumer_key, string consumer_secret)
         {
             AuthMan = new OAuth.Manager();
             AuthMan["consumer_key"] = consumer_key;
             AuthMan["consumer_secret"] = consumer_secret;
+            Ready = false;
         }
 
         public string AcquireRequestToken()
@@ -32,6 +46,8 @@ namespace TwitterBatch
         public string AcquireAccessToken(string PIN)
         {
             var res = AuthMan.AcquireAccessToken("https://api.twitter.com/oauth/access_token", "POST", PIN);
+            ConnectionInfo = HttpUtility.ParseQueryString(res.AllText);
+            Ready = true;
             return res.AllText;
         }
 
@@ -40,17 +56,21 @@ namespace TwitterBatch
             return "https://api.twitter.com/oauth/authorize?oauth_token=" + AuthMan["token"];
         }
 
-        public string Get(string action, IEnumerable<dynamic> data = null)
+        public string Get(string action, NameValueCollection data = null)
         {
             string paramStr = "";
             string url = EndpointBase + action + "." + EndpointType;
+            if(!Ready)
+            {
+                throw new Exception("Twitter API Endpoint is not ready");
+            }
 
             if (data != null)
             {
                 List<string> parameters = new List<string>();
-                foreach (dynamic item in data)
+                foreach (string key in data)
                 {
-                    parameters.Add(item.Name + "=" + HttpUtility.UrlEncode(item.Id));
+                    parameters.Add(key + "=" + HttpUtility.UrlEncode(data[key]));
                 }
                 paramStr = string.Join("&", parameters);
             }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.wizardControl1 = new AeroWizard.WizardControl();
+            this.wizardControl = new AeroWizard.WizardControl();
             this.wPageInitial = new AeroWizard.WizardPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -57,7 +57,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardControl)).BeginInit();
             this.wPageInitial.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -75,27 +75,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // wizardControl1
+            // wizardControl
             // 
-            this.wizardControl1.BackColor = System.Drawing.Color.White;
-            this.wizardControl1.CancelButtonText = "취소";
-            this.wizardControl1.ClassicStyle = AeroWizard.WizardClassicStyle.Automatic;
-            this.wizardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wizardControl1.FinishButtonText = "완료";
-            this.wizardControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wizardControl1.Location = new System.Drawing.Point(0, 0);
-            this.wizardControl1.Name = "wizardControl1";
-            this.wizardControl1.NextButtonText = "다음";
-            this.wizardControl1.Pages.Add(this.wPageInitial);
-            this.wizardControl1.Pages.Add(this.wPageApikeyAsk);
-            this.wizardControl1.Pages.Add(this.wPageApiKeyInput);
-            this.wizardControl1.Pages.Add(this.wPageLoginPrepare);
-            this.wizardControl1.Pages.Add(this.wPageLoginDo);
-            this.wizardControl1.Pages.Add(this.wPageLoginSuccess);
-            this.wizardControl1.Size = new System.Drawing.Size(670, 383);
-            this.wizardControl1.TabIndex = 0;
-            this.wizardControl1.Title = "새 연결 마법사";
-            this.wizardControl1.TitleIcon = global::TwitterBatch.Properties.Resources.main;
+            this.wizardControl.BackColor = System.Drawing.Color.White;
+            this.wizardControl.CancelButtonText = "취소";
+            this.wizardControl.ClassicStyle = AeroWizard.WizardClassicStyle.Automatic;
+            this.wizardControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wizardControl.FinishButtonText = "완료";
+            this.wizardControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wizardControl.Location = new System.Drawing.Point(0, 0);
+            this.wizardControl.Name = "wizardControl";
+            this.wizardControl.NextButtonText = "다음";
+            this.wizardControl.Pages.Add(this.wPageInitial);
+            this.wizardControl.Pages.Add(this.wPageApikeyAsk);
+            this.wizardControl.Pages.Add(this.wPageApiKeyInput);
+            this.wizardControl.Pages.Add(this.wPageLoginPrepare);
+            this.wizardControl.Pages.Add(this.wPageLoginDo);
+            this.wizardControl.Pages.Add(this.wPageLoginSuccess);
+            this.wizardControl.Size = new System.Drawing.Size(670, 383);
+            this.wizardControl.TabIndex = 0;
+            this.wizardControl.Title = "새 연결 마법사";
+            this.wizardControl.TitleIcon = global::TwitterBatch.Properties.Resources.main;
             // 
             // wPageInitial
             // 
@@ -424,14 +424,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 383);
-            this.Controls.Add(this.wizardControl1);
+            this.Controls.Add(this.wizardControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmWizard";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardControl)).EndInit();
             this.wPageInitial.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -457,8 +457,6 @@
         }
 
         #endregion
-
-        private AeroWizard.WizardControl wizardControl1;
         private AeroWizard.WizardPage wPageInitial;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -482,10 +480,11 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private AeroWizard.WizardPage wPageLoginDo;
         private System.Windows.Forms.WebBrowser wBrowserLogin;
-        private AeroWizard.WizardPage wPageLoginSuccess;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        public AeroWizard.WizardControl wizardControl;
+        public AeroWizard.WizardPage wPageLoginSuccess;
     }
 }

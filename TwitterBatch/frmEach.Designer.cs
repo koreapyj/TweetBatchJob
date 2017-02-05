@@ -36,6 +36,7 @@
             this.toolStripComboBox1 = new TwitterBatch.ToolStripSpringComboBox();
             this.실행RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lvResult = new System.Windows.Forms.ListView();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
             this.동작AToolStripMenuItem,
             this.toolStripComboBox1,
             this.실행RToolStripMenuItem});
@@ -60,6 +62,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(28, 23);
             this.toolStripMenuItem1.Text = "뒤로(&B)";
+            this.toolStripMenuItem1.Visible = false;
             // 
             // toolStripMenuItem2
             // 
@@ -80,7 +83,7 @@
             // toolStripComboBox1
             // 
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(352, 23);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(324, 23);
             this.toolStripComboBox1.Click += new System.EventHandler(this.toolStripComboBox1_Click);
             // 
             // 실행RToolStripMenuItem
@@ -103,6 +106,15 @@
             this.lvResult.View = System.Windows.Forms.View.Details;
             this.lvResult.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvResult_ColumnClick);
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(28, 23);
+            this.toolStripMenuItem3.Text = "새로고침(&R)";
+            this.toolStripMenuItem3.Visible = false;
+            // 
             // frmEach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -114,7 +126,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmEach";
             this.Text = "frmEach";
-            this.Shown += new System.EventHandler(this.frmEach_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -131,5 +142,6 @@
         private System.Windows.Forms.ToolStripMenuItem 실행RToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }

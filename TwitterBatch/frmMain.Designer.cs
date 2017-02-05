@@ -31,7 +31,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.twitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.새로열기NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.새창NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.연결NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.닫기CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.끝내기XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +66,9 @@
             // twitterToolStripMenuItem
             // 
             this.twitterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.새로열기NToolStripMenuItem,
+            this.새창NToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.연결NToolStripMenuItem,
             this.닫기CToolStripMenuItem,
             this.toolStripMenuItem1,
             this.끝내기XToolStripMenuItem});
@@ -72,23 +76,38 @@
             this.twitterToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.twitterToolStripMenuItem.Text = "&Twitter";
             // 
-            // 새로열기NToolStripMenuItem
+            // 새창NToolStripMenuItem
             // 
-            this.새로열기NToolStripMenuItem.Name = "새로열기NToolStripMenuItem";
-            this.새로열기NToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.새로열기NToolStripMenuItem.Text = "새 연결(&N)...";
-            this.새로열기NToolStripMenuItem.Click += new System.EventHandler(this.새로열기NToolStripMenuItem_Click);
+            this.새창NToolStripMenuItem.Enabled = false;
+            this.새창NToolStripMenuItem.Name = "새창NToolStripMenuItem";
+            this.새창NToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.새창NToolStripMenuItem.Text = "새 창(&N)";
+            this.새창NToolStripMenuItem.Click += new System.EventHandler(this.새창NToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // 연결NToolStripMenuItem
+            // 
+            this.연결NToolStripMenuItem.Name = "연결NToolStripMenuItem";
+            this.연결NToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.연결NToolStripMenuItem.Text = "연결(&C)...";
+            this.연결NToolStripMenuItem.Click += new System.EventHandler(this.연결NToolStripMenuItem_Click);
             // 
             // 닫기CToolStripMenuItem
             // 
+            this.닫기CToolStripMenuItem.Enabled = false;
             this.닫기CToolStripMenuItem.Name = "닫기CToolStripMenuItem";
-            this.닫기CToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.닫기CToolStripMenuItem.Text = "닫기(&C)";
+            this.닫기CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.닫기CToolStripMenuItem.Text = "연결 해제(&D)";
+            this.닫기CToolStripMenuItem.Click += new System.EventHandler(this.닫기CToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(137, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // 끝내기XToolStripMenuItem
             // 
@@ -148,7 +167,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem twitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 새로열기NToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 연결NToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 닫기CToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 끝내기XToolStripMenuItem;
@@ -156,6 +175,8 @@
         private System.Windows.Forms.ToolStripMenuItem twitterBatch정보AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem twitterAPI도움말PToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem 새창NToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
     }
 }
 

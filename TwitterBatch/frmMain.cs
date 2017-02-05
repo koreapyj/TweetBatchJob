@@ -13,6 +13,8 @@ namespace TwitterBatch
 {
     public partial class frmMain : Form
     {
+        public static TwitterOAuth TwitterConn;
+        private int ChildId = 1;
         public frmMain()
         {
             InitializeComponent();
@@ -42,11 +44,15 @@ namespace TwitterBatch
             a.ShowDialog();
         }
 
-        private void 새로열기NToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 연결NToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEach newForm = new frmEach();
-            newForm.MdiParent = this;
-            Form a = new frmWizard(newForm);
+            frmWizard a = new frmWizard();
+            a.wPageLoginSuccess.Commit += (object e_sender, AeroWizard.WizardPageConfirmEventArgs e_e) =>
+            {
+                this.연결NToolStripMenuItem.Enabled = false;
+                this.닫기CToolStripMenuItem.Enabled = true;
+                this.새창NToolStripMenuItem.Enabled = true;
+            };
             a.ShowDialog();
         }
 
@@ -58,6 +64,22 @@ namespace TwitterBatch
         private void 끝내기XToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void 새창NToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form newForm = new frmEach();
+            newForm.MdiParent = this;
+            newForm.Text = "창 " + (ChildId++);
+            newForm.Show();
+        }
+
+        private void 닫기CToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TwitterConn = null;
+            this.연결NToolStripMenuItem.Enabled = true;
+            this.닫기CToolStripMenuItem.Enabled = false;
+            this.새창NToolStripMenuItem.Enabled = false;
         }
     }
 }
