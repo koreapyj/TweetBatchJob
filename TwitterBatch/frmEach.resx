@@ -117,14 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="main" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\main.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAMVJREFUOE+tkzEOwjAQBP0DvsQfaOFNoUqFhMQHUtFSp6VKH4mKAihsl8bj+CQ7
+        IkHgrLSK5dtd3zmJWhzW2rUxpvF0IzbUouwzvKjq+rvb7i9utTs5tTkEsmaPmtb6GOU5KLTdLTOOSQ0N
+        B0XbAFojfc4sRIM2G4f5aDEV1uerez5e4ZnuQ7R4oj0EZKfPmSFaPNE+BEhRzFMU3fIBpSOUXWLxawQ+
+        sfr7QxJQIJ0W0yDW7FGbNAtojfk8w0Ul/P4z/Q6l3qCG14L/QunsAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="TwitterBatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\256_twitterbatch_trim.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="toolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAALJJREFUOE+lksENwjAMRbMjK7ABS3QBxAWps3BhFS4cuDRXUwc7+t81BISlL/k7
+        +U9J0yIif4lNqFrrtOoU1ylDBsrCYuqQKDZWHj7MV9kfL7Is7yFsQrjszk2fIGSy8AgSAWnYpRDdg5kN
+        ADdn/VcAP66HbvdHP9kQAHclgHqFDAH+oRJAm6kwswHoRu8RYLP2Stq7IqA/UQaw+eS9qjc0fP1QKSCK
+        DZQCULhOGTS/S8oTFRnMomQdIDcAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="success_icon_23194" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\success-icon-23194.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="실행RToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAKNJREFUOE9jQAbfvn07/+XLFwMol3QANOA/EL///v17AlSINAAyIGZexP97L+/9
+        //r16/z3798LQKWIAyADLLpM/rtMdPi/+8pOkGtI8xLMABju3tlJmpfQDQBhkryEzQAQJtpLuAyAYYJe
+        ImRA/eZa8gwAeWH9ubXkeQEUiJceXSIvEEFOfv7mOenRSLST0QHIAJKcjA5ABgAxRZmJxOzMwAAAu3wo
+        luQHKWcAAAAASUVORK5CYII=
+</value>
   </data>
 </root>
